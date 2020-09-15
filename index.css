@@ -1,0 +1,25 @@
+body {
+    background-color: #ecf0f1;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+h1 {
+    color:#34495e;
+    transition: color 0.5s ease-in-out;
+}
+
+.clicked {
+    color: #7f8c8d;
+}
+
+.form,
+.greeting {
+    display: none;
+}
+
+.showing {
+    display: block;
+}/*class명이 showing으로 변경될 경우 form을 block한다.*/
