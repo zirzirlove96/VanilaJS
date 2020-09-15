@@ -5,12 +5,18 @@ greeting = document.querySelector(".js-greetings");
 const USER_LOCALSTORAGE = "currentUser",//currentUser라는 key값을 생성 
 SHOWING_CURRENT="showing";
 
+//이름 저장
+function saveName(text){
+    localStorage.setItem(USER_LOCALSTORAGE, text);
+}
+
 
 //form태그에서 이름을 입력했을 경우 submit되는 함수 
 function handleSubmit(event){
     event.preventDefault();//enter를 쳤을 때 아무런 반응을 하지 않게 하기 위해
     const currentValue = input.value;
     paintGreeting(currentValue);
+    saveName(currentValue);
 }
 
 //유저가 없을 경우 이름을 넣어주는 함수
