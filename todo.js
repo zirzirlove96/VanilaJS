@@ -4,16 +4,34 @@ toDoList = document.querySelector(".js-toDoList");
 
 const TODOS_LS = "toDos";
 
+const toDos = [] //해야할 일들을 list에 담아준다.
+
+function saveToDos() {
+    //toDos를 가져와서 로컬에 저장하는 함수
+    localStorage.setItem(TODOS_LS,JSON.stringify(toDos));
+    //localStorage는 string값만 저장한다.
+    //자바스크립트 object를 string으로 바꿔준다 - JSON.stringfy
+
+}
+
 //toDoList ul태그부분에 넣는 것
 function paintTo(text){
     const li = document.createElement("li");
     const delBtn = document.createElement("button");
     delBtn.innerText="delete";
     const span = document.createElement("span");
+    const newId = toDos.length+1
     span.innerText=text;
     li.appendChild(span);
     li.appendChild(delBtn);
+    li.id=newId;//li태그의 id요소에 값을 줄 수 있다.
     toDoList.appendChild(li);
+    const toDoObj = {
+        text:text,
+        id:newId
+    }//입력해 준 값들을 array에 담기 위해 객체 활용
+    toDos.push(toDoObj);//array안에 element를 넣어준다.
+    saveToDos();
 }
 
 function handleSubmit(event){
@@ -24,9 +42,14 @@ function handleSubmit(event){
 }
 
 function loadToDos() {
-    const toDos = localStorage.getItem(TODOS_LS);//임시로 저장을 하는 localStorage에서 입력값 가져옴
-    if(toDos!==null){
-
+    const loadtoDos = localStorage.getItem(TODOS_LS);//임시로 저장을 하는 localStorage에서 입력값 가져옴
+    if(loadtoDos!==null){
+        //JSON.stringfy를 사용하여 string타입으로 변환된 데이터를
+        //object타입으로 변환하여 나타내 준다.
+        const parsetoDos = JSON.parse(loadtoDos);
+        parsetoDos.forEach(function(toDo){//forEach는 array를 사용할 때 사용
+            paintTo(toDo.text);
+        });//object타입으로 변환한 toDos를 나타내기 위해 forEach를 사용하여 하나씩 나오게 한다.
     }
 }
 

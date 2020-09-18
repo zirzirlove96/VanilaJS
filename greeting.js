@@ -22,12 +22,14 @@ function handleSubmit(event){
 //유저가 없을 경우 이름을 넣어주는 함수
 function askFormName(){
     form.classList.add(SHOWING_CURRENT);
+    //form의 class에 showing을 넣어
+    //css에서 지정한 showing을 설정해 주는 것이다. display:block
     form.addEventListener("submit",handleSubmit)
 }
 
 //유저가 있을 경우 색칠을 해주는 함수
 function paintGreeting(text){
-    form.classList.remove(SHOWING_CURRENT);//form을 지우고
+    form.classList.remove(SHOWING_CURRENT);
     greeting.classList.add(SHOWING_CURRENT);
     greeting.innerText = `Hello ${text}`;
 }
