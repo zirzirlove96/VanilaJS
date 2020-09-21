@@ -4,7 +4,24 @@ toDoList = document.querySelector(".js-toDoList");
 
 const TODOS_LS = "toDos";
 
-const toDos = [] //해야할 일들을 list에 담아준다.
+let toDos = [] //해야할 일들을 list에 담아준다.
+
+function filterFn(toDo){
+    return toDo.id===1
+}
+
+//delete버튼을 눌렀을 경우 event
+function deleteToDos(event){
+    const btn = event.target;
+    const li = btn.parentNo;
+    toDoList.removeChild(li);
+    const cleanToDos = toDos.filter(function filterFn(toDo){
+        return toDo.id!==parseInt(li.id);
+        //list안에 있는 id값과 li태그 안의 id값
+    });
+    toDos = cleanToDos;
+    saveToDos();//지우고 local에 저장한다.
+} 
 
 function saveToDos() {
     //toDos를 가져와서 로컬에 저장하는 함수
@@ -22,6 +39,7 @@ function paintTo(text){
     const span = document.createElement("span");
     const newId = toDos.length+1
     span.innerText=text;
+    delBtn.addEventListener("click",deleteToDos);
     li.appendChild(span);
     li.appendChild(delBtn);
     li.id=newId;//li태그의 id요소에 값을 줄 수 있다.
