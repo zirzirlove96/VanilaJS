@@ -6,18 +6,14 @@ const TODOS_LS = "toDos";
 
 let toDos = [] //해야할 일들을 list에 담아준다.
 
-function filterFn(toDo){
-    return toDo.id===1
-}
-
 //delete버튼을 눌렀을 경우 event
 function deleteToDos(event){
     const btn = event.target;
-    const li = btn.parentNo;
+    const li = btn.parentNode;
     toDoList.removeChild(li);
     const cleanToDos = toDos.filter(function filterFn(toDo){
-        return toDo.id!==parseInt(li.id);
-        //list안에 있는 id값과 li태그 안의 id값
+        return toDo.id===parseInt(li.id);
+        //list안에 있는 id값과 li태그 안의 id값이 같아야 지워진다.
     });
     toDos = cleanToDos;
     saveToDos();//지우고 local에 저장한다.
