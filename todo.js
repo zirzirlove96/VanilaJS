@@ -8,9 +8,9 @@ let toDos = [] //해야할 일들을 list에 담아준다.
 
 //delete버튼을 눌렀을 경우 event
 function deleteToDos(event){
-    const btn = event.target;
-    const li = btn.parentNode;
-    toDoList.removeChild(li);
+    const btn = event.target;//button을 찾아줌
+    const li = btn.parentNode;//삭제할 li를 찾아줌
+    toDoList.removeChild(li);//todoList의 자식이 li를 지우기 위해 removeChild사용
     const cleanToDos = toDos.filter(function filterFn(toDo){
         return toDo.id===parseInt(li.id);
         //list안에 있는 id값과 li태그 안의 id값이 같아야 지워진다.
