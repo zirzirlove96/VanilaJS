@@ -5,3 +5,15 @@ body {
 h1 {
   color: white;
 }
+
+.bigScreen {
+  background-color:#FFD700;
+}
+
+.mediumScreen {
+  background-color: purple;
+}
+
+.smallScreen {
+  background-color: dodgerblue;
+}
