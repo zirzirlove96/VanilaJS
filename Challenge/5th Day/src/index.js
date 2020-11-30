@@ -11,7 +11,7 @@ function getTime() {
   // Don't delete this.
   const xmasDay = new Date("2020-12-3:00:00:00+0900");
   const date = new Date();
-  const day = (xmasDay.getDate()-date.getUTCDate())+31
+  const day = (xmasDay.getDate()-date.getUTCDate())
   const hours = 23-(date.getUTCHours()+KSThours);
   const minutes = 59-(date.getMinutes()-xmasDay.getMinutes());
   const seconds = 59-(date.getSeconds()-xmasDay.getSeconds());
