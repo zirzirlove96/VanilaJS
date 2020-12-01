@@ -2,6 +2,7 @@
 //import "./styles.css";
 // <⚠️ /DONT DELETE THIS ⚠️>
 
+/**잘못된 코드. */
 const form = document.querySelector(".js-form");
 const input = form.querySelector("input");
 const pendingList = document.querySelector(".pendingList");
