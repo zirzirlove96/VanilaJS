@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+</head>
+
+<body>
+<h1>Random Number Game</h1>
+<div>
+    <h3 class="js-title">Generate a number between 0 and <span>10</span></h3>
+    <datalist id="number">
+        <!--range에서 범위를 표현해 준다.-->
+        <option value="50"></option>
+        <option value="100"></option>
+        <option value="150"></option>
+        <option value="200"></option>
+    </datalist>
+    <input list="number" type="range" id="js-range" min="5" max="200" step="5"/>
+</div>
+<!--form태그로 나타내 준다.-->
+<form id="js-form">
+    <label>Guess the number: </label><input type="number" min="5" max="200"/>
+    <button>Play!</button>
+</form>
+<div id="js-result">
+    <span></span>
+</div>
+<script src="src/index3.js"></script>
+</body>
+</html>
